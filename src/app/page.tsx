@@ -1,101 +1,81 @@
-import Image from "next/image";
+'use client';
+import Hero from '@/components/sections/hero';
+import ServiceCard from '@/components/sections/servicecard';
+import { Umbrella, Anchor, Scissors, SprayCan, Droplet, Sun, Building, Box } from 'lucide-react';
+import BaseLayout from '@/components/layout/BaseLayout';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const services = [
+    {
+      title: 'On-Site Cleaning',
+      description: 'Professional cleaning services at your location with our specialized equipment.',
+      icon: SprayCan,
+    },
+    {
+      title: 'Awning Maintenance',
+      description: 'Regular maintenance and care to extend the life of your awnings.',
+      icon: Umbrella,
+    },
+    {
+      title: 'Marine Services',
+      description: 'Specialized care for boat covers, sails, and other marine fabrics.',
+      icon: Anchor,
+    },
+    {
+      title: 'Repair Services',
+      description: 'Expert repairs and restoration for damaged outdoor fabrics.',
+      icon: Scissors,
+    },
+    {
+      title: 'APCO Products',
+      description: 'APCO Products are eco-friendly and designed for outdoor fabrics. Trusted for 32 years and recommended by top fabric manufacturers, we offer the best solutions for any cleaning challenge.',
+      icon: Droplet,  // You can replace this with any appropriate icon, or use a default one
+    },
+    {
+      title: 'Storage Services',
+      description: 'We offer fully insured, clean, and temperature-controlled storage for awnings and covers during the off-season. Your items are tagged and stored safely until spring.',
+      icon: Box // Icon for storage
+    },
+    {
+      title: 'Seasonal Awning Service and On-Site Repairs',
+      description: 'Professional seasonal awning put-up and take-down services with on-the-spot repairs like patching and reroping.',
+      icon: Sun // Icon for seasonal service
+    },
+    {
+      title: 'New Residential Awnings or Replacement Fabrics',
+      description: 'Custom-made new awnings or replacement fabrics, with a lifetime stitching warranty. Choose from a variety of colors and patterns from top manufacturers.',
+      icon: Building // Icon for new or replacement awnings
+    }    
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleCtaClick = () => {
+    // Example navigation logic
+    console.log("CTA button clicked!");
+  };
+
+  return (
+    <BaseLayout>
+      <Hero
+        title="Professional Outdoor Fabric Care"
+        subtitle="Expert cleaning and maintenance services for awnings, boat covers, and more."
+        ctaText="Get a Quote"
+        onCtaClick={handleCtaClick}
+      />
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+              />
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </BaseLayout>
   );
 }

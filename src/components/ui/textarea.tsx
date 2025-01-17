@@ -1,5 +1,4 @@
 // src/components/ui/textarea.tsx
-
 import React from "react";
 
 interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {

@@ -28,35 +28,35 @@ export default function QuoteForm() {
     consent: false,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+//     const { name, value } = e.target;
+//     setFormData({ ...formData, [name]: value });
+//   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, checked } = e.target;
-    if (checked) {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: [...prevData[name], value],
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: prevData[name].filter((item: string) => item !== value),
-      }));
-    }
-  };
+//   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const { name, value, checked } = e.target;
+//     if (checked) {
+//       setFormData((prevData) => ({
+//         ...prevData,
+//         [name]: [...prevData[name], value],
+//       }));
+//     } else {
+//       setFormData((prevData) => ({
+//         ...prevData,
+//         [name]: prevData[name].filter((item: string) => item !== value),
+//       }));
+//     }
+//   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, image: e.target.files ? e.target.files[0] : null });
-  };
+//   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setFormData({ ...formData, image: e.target.files ? e.target.files[0] : null });
+//   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Implement form submission logic (e.g., sending the data to an API or email)
-    console.log('Form submitted:', formData);
-  };
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     // Implement form submission logic (e.g., sending the data to an API or email)
+//     console.log('Form submitted:', formData);
+//   };
 
   return (
     <>
@@ -184,7 +184,12 @@ export default function QuoteForm() {
       {/* Additional Comments */}
       <div>
         <Label htmlFor="comments">Additional Comments</Label>
-        <Textarea id="comments" rows={4} placeholder="Any additional details..." />
+        <Textarea 
+        id="description" 
+        label="Description" 
+        rows={4} 
+        placeholder="Enter description" 
+        />
       </div>
 
       {/* Consent */}

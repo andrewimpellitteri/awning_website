@@ -9,24 +9,24 @@ import { Textarea } from "@/components/ui/textarea"; // For longer text inputs
 
 
 export default function QuoteForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
-    country: '',
-    phone: '',
-    email: '',
-    articleTypes: [],
-    services: [],
-    materialType: '',
-    image: null,
-    awningLength: '',
-    awningWidth: '',
-    additionalComments: '',
-    consent: false,
-  });
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     address: '',
+//     city: '',
+//     state: '',
+//     zip: '',
+//     country: '',
+//     phone: '',
+//     email: '',
+//     articleTypes: [],
+//     services: [],
+//     materialType: '',
+//     image: null,
+//     awningLength: '',
+//     awningWidth: '',
+//     additionalComments: '',
+//     consent: false,
+//   });
 
 //   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
 //     const { name, value } = e.target;
